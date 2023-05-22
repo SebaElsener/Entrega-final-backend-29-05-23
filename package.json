@@ -20,7 +20,7 @@
     "twilio": "^4.9.0",
     "yargs": "^17.7.1"
   },
-  "name": "tercera-entrega-del-proyecto-final-30-03-23",
+  "name": "entrega-final-backend-29-05-23",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -36,7 +36,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "---",
   "devDependencies": {
     "chai": "^4.3.7",
     "mocha": "^10.2.0",

@@ -30,7 +30,7 @@ const deleteProductByIdAndCartId = async (req, res) => {
 }
 
 const deleteCartById = async (req, res) => {
-    const deletedCart = await deleteCart(req.params.id_cart)
+    const deletedCart = await deleteCart(req.params.id)
     res.json(deletedCart)
 }
 

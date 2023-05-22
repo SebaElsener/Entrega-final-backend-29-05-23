@@ -50,7 +50,6 @@ deleteCartBtn[0].addEventListener('click', async () => {
         .then(async json => {
             console.log(json)
         })
-
     document.location.reload()
 })
 

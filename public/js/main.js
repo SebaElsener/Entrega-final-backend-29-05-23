@@ -65,8 +65,26 @@ for (let i=0; i < updateBtn.length; i++) {
                     'Content-Type': 'application/json'
                 }
             }
-        ).then(res => res.json()).then(json => {
+        )
+        .then(res => res.json())
+        .then(json => {
             console.log(json)
+            Toastify({
+                text: `PRODUCTO ${json.product} ACTUALIZADO`,
+                offset: {
+                    x: 150,
+                    y: 150
+                },
+                duration: 3000,
+                newWindow: false,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+            }).showToast()
         })
     })
 }

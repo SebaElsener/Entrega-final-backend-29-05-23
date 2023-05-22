@@ -54,7 +54,7 @@ class ContenedorMongoDB {
     // Borrar producto o carrito por id
     async deleteById(id) {
         try {
-            return await this.newModel.deleteOne( {_id: id} ).then(res => { return res })
+            return await this.newModel.deleteOne( {_id: id} )
         } catch (err) {
             errorLogger.error('Error al eliminar item', err)
         }

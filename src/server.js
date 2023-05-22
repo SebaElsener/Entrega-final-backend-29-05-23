@@ -69,8 +69,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 // Middleware para registrar todas la peticiones recibidas
 app.use(logs)
+
+// Rutas api
 app.use('/', userLogin)
-app.use('/api/productos', routeProducts)
+app.use('/api/productos', userLoginWatcher, routeProducts)
 app.use('/api/carrito', userLoginWatcher, routeCart)
 app.use('/api/userdata', userLoginWatcher, userData)
 app.use('/api/login', userLogin)
