@@ -22,6 +22,10 @@
             <label class="userName" for="userPass"><span class="labelTitle">Ingrese una contraseña</span>
                 <input id='userPass' class="userPassInput" name='password' type="password" required>
             </label>
+            <label class="userName" for="userPassCheck"><span class="labelTitle">Reingrese la contraseña</span>
+                <input id='userPassCheck' class="userPassCheckInput" name='passwordCheck' type="password" required>
+            </label>
+            <p id="errorPassCheck">LA CONTRASEÑA Y EL REINGRESO NO COINCIDEN, POR FAVOR VERIFICAR</p>
             <label class="userName" for="nameLastname"><span class="labelTitle">Nombre y apellido</span>
                 <input id='nameLastname' class="userNameInput" name='nameLastname' type="text" required>
             </label>
@@ -45,6 +49,8 @@
         </div>
 
     </main>
+
+    <script src="/js/passwordCheck.js"></script>
 
 </body>
 

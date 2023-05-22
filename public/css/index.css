@@ -587,7 +587,8 @@ tbody tr:nth-child(even) {
 }
 
 .userNameInput,
-.userPassInput {
+.userPassInput,
+.userPassCheckInput {
     padding: 5px;
     width: 300px;
     border: none;
@@ -601,6 +602,12 @@ tbody tr:nth-child(even) {
 .loginFormTitle,
 .regFormTitle {
     color: rgb(10, 102, 130);
+}
+
+#errorPassCheck {
+    font-size: .9rem;
+    color: red;
+    display: none;
 }
 
 .loginBtn,
