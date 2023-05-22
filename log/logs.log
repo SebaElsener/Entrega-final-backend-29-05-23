@@ -1,0 +1,167 @@
+{"level":40,"time":"2023-04-02T00:35:04.995Z","pid":8724,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-02T00:35:17.634Z","pid":8724,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/api/' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-02T00:35:40.775Z","pid":8724,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-02T00:35:52.647Z","pid":8724,"hostname":"DESKTOP-48ND4VH","msg":"Clave no válida"}
+{"level":50,"time":"2023-04-02T01:03:40.979Z","pid":8864,"hostname":"DESKTOP-48ND4VH","msg":"Clave no válida"}
+{"level":40,"time":"2023-04-02T21:54:07.504Z","pid":11900,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-02T21:54:27.953Z","pid":11900,"hostname":"DESKTOP-48ND4VH","msg":"Clave no válida"}
+{"level":50,"time":"2023-04-02T23:40:22.580Z","pid":11388,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-02T23:40:22.593Z","pid":11388,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-03T00:43:56.441Z","pid":13240,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-03T00:43:56.445Z","pid":13240,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":40,"time":"2023-04-03T00:53:12.016Z","pid":7972,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-04T04:38:18.363Z","pid":8400,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-04T04:57:09.423Z","pid":7376,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T04:57:09.433Z","pid":7376,"hostname":"DESKTOP-48ND4VH","msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:03:06.325Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:03:06.328Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:11:15.606Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:11:15.613Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:15:18.584Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-04T05:15:18.591Z","pid":4128,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Authenticate","stack":"Error: Authenticate\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":401,"code":20003,"moreInfo":"https://www.twilio.com/docs/errors/20003"},"msg":"Error al enviar SMS al cliente"}
+{"level":40,"time":"2023-04-04T21:54:49.144Z","pid":12344,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-04T21:55:12.372Z","pid":12344,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-04T22:07:58.260Z","pid":1352,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-04T22:08:31.082Z","pid":1352,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":40,"time":"2023-04-05T22:25:36.365Z","pid":10016,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-05T23:45:28.670Z","pid":4156,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{ user: 'juan@gmail.com' }\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:45:47.386Z","pid":8636,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{ user: 'juan@gmail.com' }\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:46:16.207Z","pid":6836,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{ user: 'juan@gmail.com' }\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:47:14.236Z","pid":6836,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{}\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:48:18.871Z","pid":6532,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{}\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:49:02.057Z","pid":1464,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, CastError: Cast to string failed for value \"{}\" (type Object) at path \"user\" for model \"users\""}
+{"level":50,"time":"2023-04-05T23:58:35.740Z","pid":1984,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-06T19:08:54.808Z","pid":11020,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-06T19:15:30.290Z","pid":11592,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-06T19:15:49.654Z","pid":11592,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"cart\""}
+{"level":50,"time":"2023-04-06T19:16:20.422Z","pid":11592,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":40,"time":"2023-04-06T19:42:01.210Z","pid":10508,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-06T20:46:17.538Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"Clave no válida"}
+{"level":50,"time":"2023-04-06T20:46:29.915Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-06T20:46:57.544Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-06T20:51:05.454Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-07T22:55:33.167Z","pid":16052,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T22:56:04.196Z","pid":16052,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T22:59:40.435Z","pid":9108,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:01:04.679Z","pid":1208,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:02:40.704Z","pid":2548,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":40,"time":"2023-04-07T23:20:07.236Z","pid":2548,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-07T23:21:07.399Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:21:39.066Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:26:52.793Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:27:37.645Z","pid":5376,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:32:07.037Z","pid":13772,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:34:05.962Z","pid":13620,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.collection.initializeOrderedBulk is not a function"}
+{"level":40,"time":"2023-04-07T23:42:41.614Z","pid":10632,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-07T23:49:18.756Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}
+{"level":50,"time":"2023-04-07T23:49:32.478Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}
+{"level":50,"time":"2023-04-11T22:09:10.949Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:09:32.952Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:11:34.236Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":40,"time":"2023-04-11T22:13:51.270Z","pid":13000,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-11T22:14:22.381Z","pid":13000,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:30:52.443Z","pid":11208,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:32:31.849Z","pid":9688,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (1123) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:35:54.533Z","pid":10348,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:38:58.446Z","pid":10192,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (1234) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:22.387Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:44.000Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:57.221Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:43:32.952Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T22:46:45.176Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:05:25.258Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:05:41.414Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (11111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:08:04.396Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:10:04.468Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":40,"time":"2023-04-11T23:10:25.793Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-11T23:27:45.820Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-11T23:28:40.875Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:30:34.414Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:30:48.702Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":40,"time":"2023-04-11T23:33:06.427Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-18T23:11:34.500Z","pid":12764,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-18T23:13:30.573Z","pid":12764,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-18T23:25:21.243Z","pid":13128,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'findOne')"}
+{"level":40,"time":"2023-04-19T00:09:09.424Z","pid":7680,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:20:48.429Z","pid":520,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, ReferenceError: where is not defined"}
+{"level":50,"time":"2023-04-19T00:21:45.533Z","pid":520,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, ReferenceError: where is not defined"}
+{"level":40,"time":"2023-04-19T00:28:04.150Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:28:05.275Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:28:22.457Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.doc(...).where is not a function"}
+{"level":50,"time":"2023-04-19T00:29:21.503Z","pid":14908,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.doc(...).where is not a function"}
+{"level":40,"time":"2023-04-19T00:35:01.401Z","pid":1448,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:36:08.789Z","pid":7608,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:36:20.781Z","pid":7608,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.get(...).where is not a function"}
+{"level":50,"time":"2023-04-19T00:39:22.519Z","pid":12424,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.get(...).where is not a function"}
+{"level":40,"time":"2023-04-19T00:43:00.824Z","pid":14252,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:43:02.488Z","pid":14252,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:44:25.150Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:44:34.405Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:44:54.643Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: user.data is not a function"}
+{"level":50,"time":"2023-04-19T00:50:17.195Z","pid":12424,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: result.data is not a function"}
+{"level":50,"time":"2023-04-19T00:56:04.009Z","pid":14564,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: result.data is not a function"}
+{"level":50,"time":"2023-04-19T01:00:17.397Z","pid":7932,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '_fieldsProto')"}
+{"level":40,"time":"2023-04-19T01:09:38.893Z","pid":904,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:11:13.751Z","pid":1348,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:11:15.560Z","pid":1348,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:13:55.538Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:13:57.242Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:14:21.166Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":40,"time":"2023-04-19T01:21:35.809Z","pid":5580,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:21:37.019Z","pid":5580,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:27:35.234Z","pid":10104,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '0')"}
+--
+{"level":50,"time":"2023-04-19T01:29:00.027Z","pid":10104,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":40,"time":"2023-04-19T01:35:24.063Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:35:25.156Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:35:39.056Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":40,"time":"2023-04-19T01:35:39.735Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+//////
+{"level":50,"time":"2023-04-19T14:32:19.074Z","pid":11284,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T14:33:35.826Z","pid":10288,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:00:23.658Z","pid":12616,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: docs.data is not a function"}
+{"level":50,"time":"2023-04-19T15:07:00.508Z","pid":9448,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T15:07:36.248Z","pid":9448,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:09:07.284Z","pid":2848,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:12:48.223Z","pid":13392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: q.then is not a function"}
+{"level":50,"time":"2023-04-19T15:18:01.325Z","pid":7808,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+//
+{"level":50,"time":"2023-04-19T15:21:32.550Z","pid":5488,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T15:23:30.889Z","pid":5872,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:17:16.432Z","pid":7040,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:23:28.361Z","pid":11820,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:26:33.367Z","pid":8256,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:27:10.196Z","pid":12324,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:28:47.380Z","pid":1392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Found non-callable @@iterator"}
+{"level":50,"time":"2023-04-19T17:29:08.833Z","pid":1392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Found non-callable @@iterator"}
+{"level":50,"time":"2023-04-19T17:30:36.457Z","pid":4732,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:32:23.568Z","pid":2516,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:32:47.380Z","pid":12988,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T18:22:46.918Z","pid":12488,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T18:26:03.479Z","pid":7752,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T18:50:11.710Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:11.711Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:50:24.027Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:24.027Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:50:36.696Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:36.697Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:51:22.294Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:51:22.295Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:53:11.227Z","pid":1156,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:53:11.229Z","pid":1156,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T19:42:50.342Z","pid":12568,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T20:58:01.673Z","pid":2484,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T20:58:02.874Z","pid":2484,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: cartToUpdate.productos is not iterable"}
+{"level":50,"time":"2023-04-19T21:00:51.893Z","pid":7200,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:01:37.969Z","pid":6176,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:01:53.753Z","pid":6176,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:57:14.531Z","pid":10672,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Invalid From and To pair. From and To should be of the same channel","stack":"Error: Invalid From and To pair. From and To should be of the same channel\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":400,"code":21910,"moreInfo":"https://www.twilio.com/docs/errors/21910"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-19T21:57:14.585Z","pid":10672,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"The 'To' number 56 is not a valid phone number.","stack":"Error: The 'To' number 56 is not a valid phone number.\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":400,"code":21211,"moreInfo":"https://www.twilio.com/docs/errors/21211"},"msg":"Error al enviar SMS al cliente"}
+{"level":40,"time":"2023-04-20T12:09:35.135Z","pid":13008,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-20T13:13:02.174Z","pid":1964,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-20T13:54:33.240Z","pid":9256,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-20T15:40:10.375Z","pid":9896,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-23T02:33:54.352Z","pid":11792,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-23T05:14:09.138Z","pid":9404,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-23T05:57:25.216Z","pid":12832,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-25T21:53:49.859Z","pid":7792,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
