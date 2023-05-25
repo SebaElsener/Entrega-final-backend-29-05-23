@@ -45,8 +45,8 @@ const deleteCart = async () => {
     await fetch('/api/userdata/getuser')
     .then(res => res.json())
     .then(json => {
-        userId = json._id
-        userCartId = json.cartId
+        userId = json[0]._id
+        userCartId = json[0].cartId
     })
     // Delete ID carrito en documento user
     const data = { userId: userId, cartId: '' }

@@ -22,10 +22,10 @@ const userData = async () => {
     await fetch('/api/userdata/getuser')
         .then(res => res.json())
         .then(json => {
-            userId = json._id
-            userCartId = json.cartId
-            userEmail = json.user
-            userName = json.name
+            userId = json[0]._id
+            userCartId = json[0].cartId
+            userEmail = json[0].user
+            userName = json[0].name
         })
 }
 
@@ -59,7 +59,7 @@ for (let i=0;i < deleteProductBtn.length;i++) {
         await fetch('/api/userdata/getuser')
         .then(res => res.json())
         .then(json => {
-            userCartId = json.cartId
+            userCartId = json[0].cartId
         })
         fetch(`/api/carrito/${userCartId}/productos/${deleteProductBtn[i].id}`, { method: 'DELETE' })
         .then(res => res.json())

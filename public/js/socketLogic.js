@@ -1,5 +1,5 @@
 
-const socket = io.connect()
+const socket = io()
 
 const messagesForm = document.getElementById('messagesForm')
 const userEmail = document.getElementById('userEmail')

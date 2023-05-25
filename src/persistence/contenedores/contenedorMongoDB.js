@@ -70,7 +70,7 @@ class ContenedorMongoDB {
     }
 
     //  ----------- Métodos productos -----------  //
-    // Actualizar producto por id
+    // Actualizar producto o usuario por id
     async updateById(id, data) {
         try {
             return await this.newModel.updateOne({_id: id}, { $set: data })

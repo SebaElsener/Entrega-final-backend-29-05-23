@@ -71,7 +71,7 @@ app.use(passport.session())
 app.use(logs)
 
 // Rutas api
-app.use('/', userLogin)
+//app.use('/', serverConfig)
 app.use('/api/productos', userLoginWatcher, routeProducts)
 app.use('/api/carrito', userLoginWatcher, routeCart)
 app.use('/api/userdata', userLoginWatcher, userData)
@@ -87,14 +87,14 @@ app.use(routeError)
 io.on('connection', async socket => {
     infoLogger.info('Nuevo cliente conectado!')
     // Envío listado completo de mensajes a todos los clientes conectados
-    io.sockets.emit('allMessages', {
+    io.emit('allMessages', {
         normalizedMessages: normalizeMessages(await messages.getAll()),
         originalDataLength: JSON.stringify(await messages.getAll()).length
     })
     // Escuchando y guardando nuevos mensajes
     socket.on('newMessage', async data => {
         await messages.save(data)
-        io.sockets.emit('allMessages', {
+        io.emit('allMessages', {
             normalizedMessages: normalizeMessages(await messages.getAll()),
             originalDataLength: JSON.stringify(await messages.getAll()).length
         })

@@ -1,13 +1,9 @@
 
 import passport from 'passport'
 import { Strategy } from 'passport-local'
-import bcrypt from 'bcrypt'
 import { DAOusers } from '../persistence/factory.js'
 import { errorLogger } from '../logger.js'
-
-const isValidPassword = async (dbPassword, loginPassword) => {
-    return await bcrypt.compare(loginPassword, dbPassword)
-}
+import { passwordCheck } from '../../utils/passwordCheck.js'
 
 passport.use('login', new Strategy(
     async (username, password, done) => {
@@ -16,9 +12,9 @@ passport.use('login', new Strategy(
             errorLogger.error('Usuario no existe')
             return done(null, false)
         }
-        const validPassword = await isValidPassword(user.password, password)
+        const validPassword = await passwordCheck(user.password, password)
         if (!validPassword) {
-            errorLogger.error('Clave no válida')
+            errorLogger.error('Clave incorrecta')
             return done(null, false)
         }
         return done(null, user.user)

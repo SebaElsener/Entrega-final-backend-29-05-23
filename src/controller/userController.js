@@ -6,7 +6,8 @@ import {
     purchase,
     getAllUsers,
     makeUsersAdmin,
-    deleteUsers
+    deleteUsers,
+    passBusiness
 } from '../business/userBusiness.js'
 
 const renderUserData = async (req, res) => {
@@ -62,6 +63,11 @@ const usersDelete = async (req, res) => {
     res.json(await deleteUsers(users))
 }
 
+const passChange = async (req, res) => {
+    const passData = req.body
+    res.json(await passBusiness(passData))
+}
+
 export {
     renderUserData,
     getUser,
@@ -70,5 +76,6 @@ export {
     purchaseOrder,
     usersAdmin,
     usersAdm,
-    usersDelete
+    usersDelete,
+    passChange
 }

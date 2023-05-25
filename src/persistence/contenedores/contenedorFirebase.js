@@ -29,7 +29,6 @@ class ContenedorFirebase {
         try {
             let savedItemId
             await this.query.add(data).then(ref => { savedItemId = { _id: ref.id } })
-            //const newcart = await doc.create(data).then(ref => console.log(ref))
             return savedItemId
         } catch (error) {
             errorLogger.error(`Error al escribir en base de datos, ${error}`)

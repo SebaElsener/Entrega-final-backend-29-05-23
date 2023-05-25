@@ -566,7 +566,8 @@ tbody tr:nth-child(even) {
 
 #loginForm,
 #regForm,
-#userDataForm {
+#userDataForm,
+#passForm {
     background-color: #c5dbee;
     display: flex;
     flex-direction: column;
@@ -576,14 +577,31 @@ tbody tr:nth-child(even) {
     margin: 20px;
 }
 
+#passContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 #regForm,
-#userDataForm {
+#userDataForm,
+#passForm {
     align-items: center;
+}
+
+#passForm {
+    visibility: collapse;
+    opacity: 0;
+    transition: all .5s;
 }
 
 .userName,
 .userPass {
     color: rgb(10, 102, 130);
+}
+
+#passChangeBtn {
+    width: 230px;
+    margin: 20px;
 }
 
 .userNameInput,

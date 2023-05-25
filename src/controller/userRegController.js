@@ -1,15 +1,10 @@
 
 import passport from 'passport'
 import { Strategy } from 'passport-local'
-import bcrypt from 'bcrypt'
 import { DAOusers } from '../persistence/factory.js'
 import { infoLogger, errorLogger } from '../logger.js'
 import sendMail from '../nodemailer/mailSender.js'
-
-const saltRounds = 10
-const createHash = async (password) => {
-    return await bcrypt.hash(password, saltRounds)
-}
+import { createHash } from '../../utils/passwordEncrypt.js'
 
 passport.use('register', new Strategy({
     passReqToCallback: true},

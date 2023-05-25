@@ -5,13 +5,16 @@ import sendMail from '../nodemailer/mailSender.js'
 import { infoLogger } from '../logger.js'
 import twilioSender from '../twilio/twilioMessage.js'
 import { usersAdministrationDTO } from '../persistence/DTO/usersDTO.js'
+import { passwordCheck } from '../../utils/passwordCheck.js'
 
 const getByUser = async (userName) => {
-    return await DAOusers.getByUser(userName)
+    const user = [await DAOusers.getByUser(userName)]
+    return usersAdministrationDTO(user)
 }
 
 const getAllUsers = async () => {
     const getData = await DAOusers.getAll()
+    console.log(getData)
     return usersAdministrationDTO(getData)
 }
 
@@ -57,6 +60,15 @@ const deleteUsers = async (users) => {
     return await DAOusers.deleteUsers(users)
 }
 
+const passBusiness = async (passData) => {
+    const userData = await DAOusers.getById(passData.userId)
+    const DBUserPass = userData.password
+    const validPassword = await passwordCheck(DBUserPass, passData.password)
+    if (!validPassword) { return 'LA CONTRASEÑA ACTUAL INGRESADA ES INCORRECTA' }
+    await DAOusers.updateById(passData.userId, { password: passData.newPassword })
+    return 'CONTRASEÑA MODIFICADA CON EXITO'
+}
+
 export {
     getByUser,
     updateUserById,
@@ -64,5 +76,6 @@ export {
     purchase,
     getAllUsers,
     makeUsersAdmin,
-    deleteUsers
+    deleteUsers,
+    passBusiness
 }

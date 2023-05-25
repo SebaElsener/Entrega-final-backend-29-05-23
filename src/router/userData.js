@@ -9,7 +9,8 @@ import {
     purchaseOrder,
     usersAdmin,
     usersAdm,
-    usersDelete
+    usersDelete,
+    passChange
 } from '../controller/userController.js'
 
 const userData = new Router()
@@ -29,5 +30,7 @@ userData.get('/usersadmin', usersAdmin)
 userData.put('/usersadm', usersAdm)
 
 userData.delete('/usersdelete', usersDelete)
+
+userData.post('/passchange', passChange)
 
 export default userData

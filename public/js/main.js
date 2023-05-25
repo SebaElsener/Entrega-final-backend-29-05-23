@@ -13,7 +13,7 @@ window.addEventListener('load', async () => {
     await fetch('/api/userdata/getuser')
         .then(res => res.json())
         .then(json => {
-            userCart = json.cartId
+            userCart = json[0].cartId
             cartLink[0].id = userCart
         })
     if (userCart == '') { cartLinkSpan[0].innerHTML = ': VACIO' }
