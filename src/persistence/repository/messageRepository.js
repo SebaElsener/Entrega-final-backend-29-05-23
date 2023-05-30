@@ -12,7 +12,9 @@ const messageSchema =
             avatar: {type: String, require: true, max: 300}
         },
         text: {type: String, require: true, max: 300},
-        date: {type: String, require: true, max: 300}
+        date: {type: String, require: true, max: 300},
+        from: {type: String, require: true, max: 300},
+        to: {type: String, require: true, max: 300}
     }
 
 let instance = null

@@ -1,11 +1,10 @@
 
 import express from 'express'
-import { Server as HttpServer } from 'http'
-import { Server as Socket } from 'socket.io'
+import { createServer } from "http"
+import { Server } from "socket.io"
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 import MessageRepository from './persistence/repository/messageRepository.js'
-import normalizeMessages from './normalize/normalize.js'
 import userLogin from './router/userLogin.js'
 import homeRoute from './router/homeRoute.js'
 import userReg from './router/userReg.js'
@@ -25,13 +24,16 @@ import routeError from './middleware/routeError.js'
 import { logs } from './middleware/logs.js'
 import userData from './router/userData.js'
 import { infoLogger, errorLogger } from './logger.js'
+import SessionStore from '../utils/chatSessionStorage.js'
+import crypto from 'crypto'
 
 dotenv.config()
 
 const yargs = _yargs(hideBin(process.argv))
 const app = express()
-const httpServer = new HttpServer(app)
-const io = new Socket(httpServer)
+const httpServer = createServer(app)
+const io = new Server(httpServer)
+
 const messages = MessageRepository.getInstance()
 
 app.set('view engine', 'ejs')
@@ -54,8 +56,7 @@ app.use(session({
     saveUninitialized: false,
     rolling: true,
     cookie: {
-        // Tiempo de expiración 10 min
-        maxAge: 600000
+        maxAge: parseInt(process.env.SESSION_TIME)
     }
 }))
 
@@ -67,11 +68,12 @@ passport.deserializeUser((user, done) => {
 })
 app.use(passport.initialize())
 app.use(passport.session())
+
 // Middleware para registrar todas la peticiones recibidas
 app.use(logs)
 
 // Rutas api
-//app.use('/', serverConfig)
+app.use('/', userLogin)
 app.use('/api/productos', userLoginWatcher, routeProducts)
 app.use('/api/carrito', userLoginWatcher, routeCart)
 app.use('/api/userdata', userLoginWatcher, userData)
@@ -81,22 +83,77 @@ app.use('/api/register', userReg)
 app.use('/api/home', homeRoute)
 app.use('/api/', infoAndRandoms)
 
+const sessionStore = new SessionStore()
+const randomId = () => crypto.randomBytes(8).toString("hex")
+io.use((socket, next) => {
+    infoLogger.info(`Nuevo cliente conectado!`)
+
+    const sessionID = socket.handshake.auth.sessionID
+    if (sessionID) {
+      // find existing session
+      const session = sessionStore.findSession(sessionID)
+      if (session) {
+        socket.sessionID = sessionID
+        socket.userID = session.userID
+        socket.username = session.username
+        return next()
+      }
+    }
+    const username = socket.handshake.auth.username
+    //create new session
+    socket.sessionID = randomId()
+    socket.userID = randomId()
+    socket.username = username
+    next()
+  })
+
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados
 app.use(routeError)
 
 io.on('connection', async socket => {
-    infoLogger.info('Nuevo cliente conectado!')
-    // Envío listado completo de mensajes a todos los clientes conectados
-    io.emit('allMessages', {
-        normalizedMessages: normalizeMessages(await messages.getAll()),
-        originalDataLength: JSON.stringify(await messages.getAll()).length
+    sessionStore.saveSession(socket.sessionID, {
+        userID: socket.userID,
+        username: socket.username,
+      })
+
+    socket.emit("session", {
+        sessionID: socket.sessionID,
+        userID: socket.userID,
     })
+
+    // join the "userID" room
+    socket.join(socket.userID)
+
+    // Almacenamiento de usuarios que se van conectando
+    const users = []
+    sessionStore.findAllSessions().forEach((session) => {
+        users.push({
+            userID: session.userID,
+            username: session.username
+        })
+    })
+    // Envío de usuarios conectados
+    io.sockets.emit('connectedUsers', users)
+
     // Escuchando y guardando nuevos mensajes
     socket.on('newMessage', async data => {
-        await messages.save(data)
-        io.emit('allMessages', {
-            normalizedMessages: normalizeMessages(await messages.getAll()),
-            originalDataLength: JSON.stringify(await messages.getAll()).length
+        const { newMessage, receiverID, receiver, sender } = data
+        const dataToStore =
+            {
+                ...newMessage,
+                from: sender,
+                to: receiver
+            }
+        await messages.save(dataToStore)
+        const allMssgs = await messages.getAll()
+        let mssgs = []
+        for (let mssg of allMssgs){
+            if (mssg.from === sender && mssg.to === receiver) { mssgs.push(mssg) }
+            if (mssg.from === receiver && mssg.to === sender) { mssgs.push(mssg) }
+        }
+
+        io.to(receiverID).to(socket.userID).emit('newMessage', {
+            newMessage: mssgs
         })
     })
 })

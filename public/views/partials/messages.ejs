@@ -1,7 +1,9 @@
 
 <article id="MessagesCenter">
-
-    <h2 class='messagesCenterTitle' style="text-align: center; margin-bottom: 10px">Centro de mensajes</h2>
+    <div id="closeChat">
+        X
+    </div>
+    <h2 class='messagesCenterTitle' style="text-align: center; margin: 15px 0px; font-size: 1.3rem">Centro de mensajes</h2>
 
     <div id="userInfo">
         <p id="userEmail"><%= userData.user %></p>
@@ -15,7 +17,7 @@
     <div id="messagesContainer">
     </div>
 
-    <form id="messagesForm">
+    <form id="messagesForm" autocomplete="off">
         <input id='messageContent' type="text" placeholder="Ingrese su mensaje" required>
         <button class="msgBtn" type="submit">Enviar</button>
     </form>

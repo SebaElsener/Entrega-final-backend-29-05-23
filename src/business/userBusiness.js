@@ -14,7 +14,6 @@ const getByUser = async (userName) => {
 
 const getAllUsers = async () => {
     const getData = await DAOusers.getAll()
-    console.log(getData)
     return usersAdministrationDTO(getData)
 }
 

@@ -1,6 +1,5 @@
 
-const socket = io()
-
+const socket = io({ autoConnect: false })
 const messagesForm = document.getElementById('messagesForm')
 const userEmail = document.getElementById('userEmail')
 const userName = document.getElementById('userName')
@@ -11,6 +10,27 @@ const userAvatar = document.getElementById('userAvatar')
 const messageContent = document.getElementById('messageContent')
 const messagesContainer = document.getElementById('messagesContainer')
 const messagesCenterTitle = document.getElementsByClassName('messagesCenterTitle')
+let receiverID
+let receiver
+
+const sessionID = localStorage.getItem("sessionID")
+if (sessionID) {
+  socket.auth = { sessionID }
+  socket.connect()
+} else {
+    socket.auth = { username: userEmail.innerText }
+    socket.connect()
+}
+
+// Almacenamiento de la session socket para no perder los datos en caso de reinicio de la pagina
+socket.on("session", ({ sessionID, userID }) => {
+    // attach the session ID to the next reconnection attempts
+    socket.auth = { sessionID }
+    // store it in the localStorage
+    localStorage.setItem("sessionID", sessionID)
+    // save the ID of the user
+    socket.userID = userID
+})
 
 //  Envio nuevo mensaje al servidor
 messagesForm.addEventListener('submit', (e) => {
@@ -28,38 +48,106 @@ messagesForm.addEventListener('submit', (e) => {
         text: messagesForm[0].value,
         date: new Date().toLocaleString()
     }
-    socket.emit('newMessage', newMessage)
+    const sender = userEmail.innerText
+    socket.emit('newMessage', { newMessage, receiverID, receiver, sender })
     messagesForm.reset()
 })
 
-//  Schema normalización mensajes
-const authorSchema = new normalizr.schema.Entity('author')
-const postSchema = new normalizr.schema.Entity('post', { author: authorSchema }, { idAttribute: '_id' })
-const postsSchema = new normalizr.schema.Entity('posts', { mensajes: [postSchema] })
-
-// Escuchando listado mensajes enviado por el servidor
-socket.on('allMessages', data => {
-    const { normalizedMessages, originalDataLength } = data
-    const denormalizedMessages = normalizr.denormalize(normalizedMessages.result, postsSchema, normalizedMessages.entities)
-    const normalizedMessagesLength = JSON.stringify(normalizedMessages).length
-    let compressionRatio
-    originalDataLength === 2
-        ? compressionRatio = 0
-        : compressionRatio = ((normalizedMessagesLength * 100) / originalDataLength).toFixed(2)
-    messagesCenterTitle[0].innerText = `Centro de Mensajes - Compresión: ${compressionRatio}%`
-    const msgMapping = denormalizedMessages.mensajes.map(message => {
+const mssgsListing = (data) => {
+    const msgMapping = data.map(message => {
         return `<div id='messagesDiv'>
                     <div class='userDataContainer'>
                     <div class='userImgContainer'>
-                        <img class='userImg' src='${message.author.avatar}' alt='[avatar usuario ${message.author.id}]' width='30px'>
+                        <img style='color: #313131' class='userImg' src='${message.author.avatar}' alt='[avatar]' width='25px'>
                     </div>
-                    <b style="color: blue" class='msgAuthor'>${message.author.id}</b>
-                    <span style="color: brown">[ ${message.date} ]</span>
+                    <p style="color: #5050fb; font-size: .8rem" class='msgAuthor'>${message.author.id}</p>
+                    <span style="color: brown; font-size: .8rem">[ ${message.date} ]</span>
                     </div>
-                    <div class='textContainer'>
-                    <i style="color: green">=>  ${message.text}</i>
+                        <div class='textContainer'>
+                        <i style="color: green; font-size: .9rem">=>  ${message.text}</i>
                     </div>
                 </div>`
     })
-    messagesContainer.innerHTML = msgMapping.join(' ')
+    return msgMapping.join(' ')
+}
+
+const renderUsers = (users) => {
+    const usersMapping = users.map(user => {
+        return `<div id='messagesDiv'>
+                    <div class='userDataContainer'>
+                        <div class='userImgContainer connUsersContainer'>
+                            <p style="color: #5050fb; font-size: .9rem" class='msgAuthor'>${user.username}</p>
+                            <input type='hidden' id='${user.userID}'>
+                            <button class='sndMssgBtn'>Enviar mensaje</button>
+                        </div>
+                    </div>
+                </div>`
+    })
+    return usersMapping.join(' ')
+}
+
+socket.on('connectedUsers', users => {
+    messagesContainer.innerHTML = renderUsers(users)
+    const sndMssgBtn = document.getElementsByClassName('sndMssgBtn')
+    sendPrivateMessage(sndMssgBtn)
 })
+
+socket.on('newMessage', data => {
+    const { newMessage } = data
+    //mssgsNormalize(data)
+    const mappedMsggs = mssgsListing(newMessage)
+    const privateMssgs = document.getElementById('privateMssgs')
+    privateMssgs.innerHTML = mappedMsggs
+    privateMssgContainer.scrollTop = 9999
+})
+
+// Eventos para abrir y cerrar chat
+const chatLink = document.getElementById('chatLink')
+const MessagesCenter = document.getElementById('MessagesCenter')
+chatLink.addEventListener('click', () => {
+    MessagesCenter.style.transition = 'all .5s ease-out'
+    MessagesCenter.style.transform = 'translateX(-100%)'
+    messagesContainer.scrollTop = 9999
+})
+
+const closeChat = document.getElementById('closeChat')
+closeChat.addEventListener('click', () => {
+    MessagesCenter.style.transition = 'all .5s ease-in'
+    MessagesCenter.style.transform = 'translateX(100%)'
+})
+
+// Evento mensajes privados
+let privateMssgContainer
+const sendPrivateMessage = (sndMssgBtn) => {
+    for (let i=0;i < sndMssgBtn.length;i++) {
+        sndMssgBtn[i].addEventListener('click', () => {
+            receiverID = sndMssgBtn[i].previousElementSibling.id
+            receiver = sndMssgBtn[i].previousElementSibling.previousElementSibling.innerText
+            const privateMssgTemplate =
+                `
+                <div id='privateMssgContainer' style='height: 300px; background-color: #88d285de; overflow-y: auto'>
+                    <div id='closePrivateChat'>X</div>
+                    <div class='privateMssgTitle'>
+                        <p style='text-align: center; margin: 0' >Chat con ${receiver}</p>
+                    </div>
+                    <div id='privateMssgs'>
+                    </div>
+                </div>
+                `
+            const privatePopup = document.createElement('div')
+            privatePopup.setAttribute('id', 'privatePopup')
+            messagesContainer.append(privatePopup)
+            const privateDiv = document.getElementById('privatePopup')
+            privateDiv.style.overflowX = 'hidden'
+            privateDiv.innerHTML = privateMssgTemplate
+            privateMssgContainer = document.getElementById('privateMssgContainer')
+            messagesContainer.scrollTop = 9999
+            messagesForm.style.visibility = 'visible'
+            const closePrivateChat = document.getElementById('closePrivateChat')
+            closePrivateChat.addEventListener('click', () => {
+                privateDiv.remove()
+                messagesForm.style.visibility = 'collapse'
+            })
+        })
+    }
+}

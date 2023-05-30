@@ -12,8 +12,9 @@ import {
 
 const renderUserData = async (req, res) => {
     const userName = req.session.passport.user
+    const userData = await getByUser(userName)
     res.render('userData', {
-        userData: await getByUser(userName)
+        userData: userData[0]
     })
 }
 
