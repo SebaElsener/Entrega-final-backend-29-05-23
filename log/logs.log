@@ -227,3 +227,6 @@
 {"level":40,"time":"2023-05-30T01:56:43.453Z","pid":3880,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
 {"level":40,"time":"2023-05-30T01:56:53.527Z","pid":3880,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
 {"level":40,"time":"2023-05-30T01:57:03.757Z","pid":3880,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-30T02:06:37.707Z","pid":10596,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-30T02:07:05.853Z","pid":10596,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-30T02:07:15.030Z","pid":10596,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
