@@ -5,15 +5,18 @@ import { infoLogger, errorLogger } from '../../logger.js'
 
 dotenv.config()
 
-mongoose.connect(process.env.MONGOURI,
+mongoose
+  .connect(
+    process.env.MONGOURI,
     {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }, error => {
-        if(error) throw new Error(`Error al conectar a base de datos, ${error}`)
-        infoLogger.info('MONGODB:  Base de datos conectada')
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    (error) => {
+      if (error) throw new Error(`Error al conectar a base de datos, ${error}`);
+      infoLogger.info("MONGODB:  Base de datos conectada");
     }
-)
+  )
 
 class ContenedorMongoDB {
     

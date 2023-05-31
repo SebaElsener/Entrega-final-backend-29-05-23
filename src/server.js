@@ -2,8 +2,7 @@
 import express from 'express'
 import { createServer } from "http"
 import { Server } from "socket.io"
-import session from 'express-session'
-import MongoStore from 'connect-mongo'
+import { sessionMiddleware } from './middleware/sessionMiddleware.js'
 import MessageRepository from './persistence/repository/messageRepository.js'
 import userLogin from './router/userLogin.js'
 import homeRoute from './router/homeRoute.js'
@@ -25,7 +24,6 @@ import { logs } from './middleware/logs.js'
 import userData from './router/userData.js'
 import { infoLogger, errorLogger } from './logger.js'
 import SessionStore from '../utils/chatSessionStorage.js'
-import crypto from 'crypto'
 
 dotenv.config()
 
@@ -43,31 +41,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(compression())
-app.use(session({
-    store: MongoStore.create({
-        dbName: 'sessions',
-        mongoUrl: process.env.MONGOURI,
-        mongoOptions: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }}),
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false,
-    rolling: true,
-    cookie: {
-        maxAge: parseInt(process.env.SESSION_TIME)
-    }
-}))
-
+app.use(sessionMiddleware)
+app.use(passport.initialize())
+app.use(passport.session())
 passport.serializeUser((user, done) => {
     done(null, user)
   })
 passport.deserializeUser((user, done) => {
     done(null, user)
 })
-app.use(passport.initialize())
-app.use(passport.session())
 
 // Middleware para registrar todas la peticiones recibidas
 app.use(logs)
@@ -86,49 +68,36 @@ app.use('/api/', infoAndRandoms)
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados
 app.use(routeError)
 
-const sessionStore = new SessionStore()
-const randomId = () => crypto.randomBytes(8).toString("hex")
-io.use((socket, next) => {
-    infoLogger.info(`Nuevo cliente conectado!`)
+// convert a connect middleware to a Socket.IO middleware
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next)
+io.use(wrap(sessionMiddleware))
+io.use(wrap(passport.initialize()))
+io.use(wrap(passport.session()))
 
-    const sessionId = socket.handshake.auth.sessionId
-    if (sessionId) {
-      // find existing session
-      const session = sessionStore.findSession(sessionId)
-      if (session) {
-        socket.sessionId = sessionId
-        socket.userID = session.userID
-        socket.username = session.username
-        return next()
-      }
+const sessionStore = new SessionStore()
+io.use((socket, next) => {
+    if (socket.request.user) {
+        socket.sessionId = socket.request.sessionID
+        socket.username = socket.request.user
+        next()
+    } else {
+        next(infoLogger.error('SESION NO INICIADA'))
     }
-    const username = socket.handshake.auth.username
-    //create new session
-    socket.sessionId = randomId()
-    socket.userID = randomId()
-    socket.username = username
-    next()
 })
 
 io.on('connection', async socket => {
+    infoLogger.info(`Nuevo cliente ${socket.username} conectado!`);
     sessionStore.saveSession(socket.sessionId, {
-        userID: socket.userID,
         username: socket.username,
       })
 
-    socket.emit("sesion", {
-        sessionId: socket.sessionId,
-        userID: socket.userID,
-    })
-
-    // join the "userID" room
-    socket.join(socket.userID)
+    // join the user room
+    socket.join(socket.username)
 
     // Almacenamiento de usuarios que se van conectando
     const users = []
     sessionStore.findAllSessions().forEach((session) => {
         users.push({
-            userID: session.userID,
             username: session.username
         })
     })
@@ -137,7 +106,7 @@ io.on('connection', async socket => {
 
     // Escuchando y guardando nuevos mensajes
     socket.on('newMessage', async data => {
-        const { newMessage, receiverID, receiver, sender } = data
+        const { newMessage, receiver, sender } = data
         const dataToStore =
             {
                 ...newMessage,
@@ -148,19 +117,21 @@ io.on('connection', async socket => {
         const allMssgs = await messages.getAll()
         let mssgs = []
         for (let mssg of allMssgs){
+            if (mssg.from === sender && mssg.to === sender) {
+				mssgs.push(mssg)
+                continue
+			}
             if (mssg.from === sender && mssg.to === receiver) { mssgs.push(mssg) }
             if (mssg.from === receiver && mssg.to === sender) { mssgs.push(mssg) }
         }
-
-        io.to(receiverID).to(socket.userID).emit('newMessage', {
+        io.to(receiver).to(socket.username).emit("newMessage", {
             newMessage: mssgs
         })
     })
-    // socket.on('disconnect', () => {
-    //     console.log('desconectado', socket.sessionId)
-    //     sessionStore.deleteSession(socket.sessionId)
-    //     socket.emit('disconnected')
-    // })
+    socket.on('disconnect', () => {
+        infoLogger.info(`Desconectado ${socket.username}`)
+        sessionStore.deleteSession(socket.sessionId)
+    })
 })
 
 const { PORT, clusterMode } = yargs

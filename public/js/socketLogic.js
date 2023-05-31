@@ -1,5 +1,5 @@
 
-const socket = io({ autoConnect: false })
+const socket = io().connect()
 const messagesForm = document.getElementById('messagesForm')
 const userEmail = document.getElementById('userEmail')
 const userName = document.getElementById('userName')
@@ -10,37 +10,7 @@ const userAvatar = document.getElementById('userAvatar')
 const messageContent = document.getElementById('messageContent')
 const messagesContainer = document.getElementById('messagesContainer')
 const messagesCenterTitle = document.getElementsByClassName('messagesCenterTitle')
-let receiverID
 let receiver
-
-const sessionId = localStorage.getItem("sessionId")
-if (sessionId) {
-    socket.auth = { sessionId }
-    socket.connect()
-} else {
-    socket.auth = { username: userEmail.innerText }
-    socket.connect()
-}
-
-socket.on('connect', () => {
-    //msgAuthor = document.getElementById('msgAuthor')
-    console.log('conectado', socket)
-    //if (!msgAuthor) { socket.auth = { username: userEmail.innerText } }
-})
-
-// Almacenamiento de la session socket para no perder los datos en caso de reinicio de la pagina
-socket.on("sesion", ({ sessionId, userID }) => {
-    // attach the session ID to the next reconnection attempts
-    socket.auth = { sessionId }
-    // store it in the localStorage
-    localStorage.setItem("sessionId", sessionId)
-    // save the ID of the user
-    socket.userID = userID
-})
-
-// socket.on('disconnected', () => {
-//     localStorage.removeItem("sessionId")
-// })
 
 //  Envio nuevo mensaje al servidor
 messagesForm.addEventListener('submit', (e) => {
@@ -59,7 +29,7 @@ messagesForm.addEventListener('submit', (e) => {
         date: new Date().toLocaleString()
     }
     const sender = userEmail.innerText
-    socket.emit('newMessage', { newMessage, receiverID, receiver, sender })
+    socket.emit('newMessage', { newMessage, receiver, sender })
     messagesForm.reset()
 })
 
@@ -83,11 +53,12 @@ const mssgsListing = (data) => {
 
 const renderUsers = (users) => {
     const usersMapping = users.map(user => {
+        // <input type='hidden' id='${user.userID}'></input>
         return `<div id='messagesDiv'>
                     <div class='userDataContainer'>
                         <div class='userImgContainer connUsersContainer'>
                             <p style="color: #5050fb; font-size: .9rem" class='msgAuthor'>${user.username}</p>
-                            <input type='hidden' id='${user.userID}'>
+                            
                             <button class='sndMssgBtn'>Enviar mensaje</button>
                         </div>
                     </div>
@@ -104,7 +75,6 @@ socket.on('connectedUsers', users => {
 
 socket.on('newMessage', data => {
     const { newMessage } = data
-    //mssgsNormalize(data)
     const mappedMsggs = mssgsListing(newMessage)
     const privateMssgs = document.getElementById('privateMssgs')
     privateMssgs.innerHTML = mappedMsggs
@@ -131,8 +101,7 @@ let privateMssgContainer
 const sendPrivateMessage = (sndMssgBtn) => {
     for (let i=0;i < sndMssgBtn.length;i++) {
         sndMssgBtn[i].addEventListener('click', () => {
-            receiverID = sndMssgBtn[i].previousElementSibling.id
-            receiver = sndMssgBtn[i].previousElementSibling.previousElementSibling.innerText
+            receiver = sndMssgBtn[i].previousElementSibling.innerText
             const privateMssgTemplate =
                 `
                 <div id='privateMssgContainer' style='height: 300px; background-color: #88d285de; overflow-y: auto'>
