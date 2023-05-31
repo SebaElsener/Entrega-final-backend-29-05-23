@@ -83,17 +83,20 @@ app.use('/api/register', userReg)
 app.use('/api/home', homeRoute)
 app.use('/api/', infoAndRandoms)
 
+// Middleware para mostrar error al intentar acceder a una ruta/método no implementados
+app.use(routeError)
+
 const sessionStore = new SessionStore()
 const randomId = () => crypto.randomBytes(8).toString("hex")
 io.use((socket, next) => {
     infoLogger.info(`Nuevo cliente conectado!`)
 
-    const sessionID = socket.handshake.auth.sessionID
-    if (sessionID) {
+    const sessionId = socket.handshake.auth.sessionId
+    if (sessionId) {
       // find existing session
-      const session = sessionStore.findSession(sessionID)
+      const session = sessionStore.findSession(sessionId)
       if (session) {
-        socket.sessionID = sessionID
+        socket.sessionId = sessionId
         socket.userID = session.userID
         socket.username = session.username
         return next()
@@ -101,23 +104,20 @@ io.use((socket, next) => {
     }
     const username = socket.handshake.auth.username
     //create new session
-    socket.sessionID = randomId()
+    socket.sessionId = randomId()
     socket.userID = randomId()
     socket.username = username
     next()
-  })
-
-// Middleware para mostrar error al intentar acceder a una ruta/método no implementados
-app.use(routeError)
+})
 
 io.on('connection', async socket => {
-    sessionStore.saveSession(socket.sessionID, {
+    sessionStore.saveSession(socket.sessionId, {
         userID: socket.userID,
         username: socket.username,
       })
 
-    socket.emit("session", {
-        sessionID: socket.sessionID,
+    socket.emit("sesion", {
+        sessionId: socket.sessionId,
         userID: socket.userID,
     })
 
@@ -156,6 +156,11 @@ io.on('connection', async socket => {
             newMessage: mssgs
         })
     })
+    // socket.on('disconnect', () => {
+    //     console.log('desconectado', socket.sessionId)
+    //     sessionStore.deleteSession(socket.sessionId)
+    //     socket.emit('disconnected')
+    // })
 })
 
 const { PORT, clusterMode } = yargs

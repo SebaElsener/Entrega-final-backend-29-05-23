@@ -13,24 +13,34 @@ const messagesCenterTitle = document.getElementsByClassName('messagesCenterTitle
 let receiverID
 let receiver
 
-const sessionID = localStorage.getItem("sessionID")
-if (sessionID) {
-  socket.auth = { sessionID }
-  socket.connect()
+const sessionId = localStorage.getItem("sessionId")
+if (sessionId) {
+    socket.auth = { sessionId }
+    socket.connect()
 } else {
     socket.auth = { username: userEmail.innerText }
     socket.connect()
 }
 
+socket.on('connect', () => {
+    //msgAuthor = document.getElementById('msgAuthor')
+    console.log('conectado', socket)
+    //if (!msgAuthor) { socket.auth = { username: userEmail.innerText } }
+})
+
 // Almacenamiento de la session socket para no perder los datos en caso de reinicio de la pagina
-socket.on("session", ({ sessionID, userID }) => {
+socket.on("sesion", ({ sessionId, userID }) => {
     // attach the session ID to the next reconnection attempts
-    socket.auth = { sessionID }
+    socket.auth = { sessionId }
     // store it in the localStorage
-    localStorage.setItem("sessionID", sessionID)
+    localStorage.setItem("sessionId", sessionId)
     // save the ID of the user
     socket.userID = userID
 })
+
+// socket.on('disconnected', () => {
+//     localStorage.removeItem("sessionId")
+// })
 
 //  Envio nuevo mensaje al servidor
 messagesForm.addEventListener('submit', (e) => {

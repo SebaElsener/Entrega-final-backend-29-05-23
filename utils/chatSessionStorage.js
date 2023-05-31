@@ -21,6 +21,10 @@ class SessionStore {
       return this.sessions.delete(id)
     }
 
+    deleteAllSessions() {
+      this.sessions.clear()
+    }
+
   }
 
   export default SessionStore
